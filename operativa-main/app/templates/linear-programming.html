@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Programación Lineal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/linear.css') }}">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+        }
+        textarea, input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+        .bottom-left {
+
+            background: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulario de Programación Lineal</h1>
+    <form action="/linear" method="post">
+        <label for="funcion_objetivo">Función Objetivo:</label>
+        <input type="text" id="funcion_objetivo" name="funcion_objetivo" placeholder="ejemplo:, 5*x + 7*y" required>
+
+        <label for="objetivo">Objetivo:</label>
+        <select id="objetivo" name="objetivo" required>
+            <option value="Maximizar">Maximizar</option>
+            <option value="Minimizar">Minimizar</option>
+        </select>
+
+        <label for="restricciones">Restricciones:</label>
+        <textarea id="restricciones" name="restriccion" rows="5" placeholder="Ingrese una restricción por línea, ejemplo: 4*x + 3*y <= 5" required></textarea>
+
+        <input type="submit" value="Resolver">
+    </form>
+
+
+
+        <button onclick="window.history.back()" class="btn btn-secondary position-fixed bottom-0 start-0 m-3">Volver</button>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimización de Redes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #0d6efd; /* Cambiado a azul de Bootstrap */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0b5ed7; /* Un tono más oscuro para el hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Optimización de Redes</h2>
+        <form action="{{ url_for('solve_network') }}" method="post">
+            <label for="edges">Aristas (formato: nodo1,nodo2,costo;...):</label>
+            <input type="text" id="edges" name="edges" required placeholder="Ej: 1,2,10;2,3,20;1,3,15">
+
+            <label for="source">Nodo Fuente:</label>
+            <input type="number" id="source" name="source" placeholder="Ej: 1">
+
+            <label for="sink">Nodo Sumidero:</label>
+            <input type="number" id="sink" name="sink" placeholder="Ej: 3">
+
+            <label for="supply">Suministro (formato: nodo:cantidad,...):</label>
+            <input type="text" id="supply" name="supply" placeholder="Ej: 1:100,2:50">
+
+            <label for="demand">Demanda (formato: nodo:cantidad,...):</label>
+            <input type="text" id="demand" name="demand" placeholder="Ej: 3:150">
+
+            <input type="submit" value="Resolver">
+        </form>
+    </div>
+
+<button onclick="window.history.back()" class="btn btn-secondary position-fixed bottom-0 start-0 m-3">Volver</button>
+</body>
+</html>
